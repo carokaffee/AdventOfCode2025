@@ -5,7 +5,7 @@ My solutions for AoC 2025 written in Python.
 ## Overview
 
 | Day :christmas_tree: | Problem | Solution |
-| :---: | --- | --- | --- | :---: | --- | --- |
+| :---: | --- | --- |
 | 01 | [](https://adventofcode.com/2023/day/1) | [](src/solutions/day01.py) |
 | 02 | [](https://adventofcode.com/2023/day/2) | [](src/solutions/day02.py) |
 | 03 | [](https://adventofcode.com/2023/day/3) | [](src/solutions/day03.py) |
@@ -18,4 +18,3 @@ My solutions for AoC 2025 written in Python.
 | 10 | [](https://adventofcode.com/2023/day/10) | [](src/solutions/day10.py) |
 | 11 | [](https://adventofcode.com/2023/day/11) | [](src/solutions/day11.py) |
 | 12 | [](https://adventofcode.com/2023/day/12) | [](src/solutions/day12.py) |
-
