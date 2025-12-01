@@ -1,12 +1,13 @@
 # :star: Advent of Code 2025 :star:
 
 My solutions for AoC 2025 written in Python.
+The entire process of finding, debugging, and refining the solutions involves no AI of any kind.
 
 ## Overview
 
 | Day :christmas_tree: | Problem | Solution |
 | :---: | --- | --- |
-| 01 | [](https://adventofcode.com/2023/day/1) | [](src/solutions/day01.py) |
+| 01 | [Secret Entrance](https://adventofcode.com/2023/day/1) | [day01.py](src/solutions/day01.py) |
 | 02 | [](https://adventofcode.com/2023/day/2) | [](src/solutions/day02.py) |
 | 03 | [](https://adventofcode.com/2023/day/3) | [](src/solutions/day03.py) |
 | 04 | [](https://adventofcode.com/2023/day/4) | [](src/solutions/day04.py) |
