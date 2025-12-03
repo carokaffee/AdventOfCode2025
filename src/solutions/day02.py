@@ -1,22 +1,20 @@
 from src.tools.loader import load_data
 
-TESTING = False
+TESTING = True
 
 
-def is_invalid(num):
-    num = str(num)
-
-    if len(num) % 2 == 1:
-        return False
-    if num[: len(num) // 2] == num[len(num) // 2 :]:
-        return True
-    return False
-
-
-def is_invalid2(num):
+def is_invalid(num, longest_id, multiple):
     num = str(num)
     length = len(num)
-    for k in range(5, 0, -1):
+    if multiple:
+        possible_ks = range(longest_id // 2, 0, -1)
+    else:
+        if length % 2 != 0:
+            return False
+        else:
+            possible_ks = [length // 2]
+
+    for k in possible_ks:
         if length % k != 0 or length == k:
             continue
 
@@ -29,14 +27,28 @@ def is_invalid2(num):
 
 if __name__ == "__main__":
     data = load_data(TESTING, ",")
-    ranges = [tuple(map(int, el.split("-"))) for el in data]
 
-    sum_invalid = 0
+    id_ranges = [tuple(map(int, el.split("-"))) for el in data]
+    longest_id = max([len(str(id2)) for (_, id2) in id_ranges])
 
-    for i, (start, end) in enumerate(ranges):
-        print(i, start, end)
+    sum_invalid_a = 0
+    sum_invalid_b = 0
+
+    for start, end in id_ranges:
+        midsum = 0
         for num in range(start, end + 1):
-            if is_invalid2(num):
-                sum_invalid += num
+            if is_invalid(num, longest_id, multiple=False):
+                sum_invalid_a += num
+                midsum += 1
+            if is_invalid(num, longest_id, multiple=True):
+                sum_invalid_b += num
 
-    print(sum_invalid)
+    # PART 1
+    # test:    1227775554
+    # answer: 56660955519
+    print(sum_invalid_a)
+
+    # PART 2
+    # test:    4174379265
+    # answer: 79183223243
+    print(sum_invalid_b)
