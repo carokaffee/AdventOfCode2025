@@ -12,7 +12,7 @@ The entire process of finding, debugging, and refining the solutions involves no
 | 02 | [Gift Shop](https://adventofcode.com/2023/day/2) | [day02.py](src/solutions/day02.py) |
 | 03 | [Lobby](https://adventofcode.com/2023/day/3) | [day03.py](src/solutions/day03.py) |
 | 04 | [Printing Department](https://adventofcode.com/2023/day/4) | [day04.py](src/solutions/day04.py) |
-| 05 | [](https://adventofcode.com/2023/day/5) | [](src/solutions/day05.py) |
+| 05 | [Cafeteria](https://adventofcode.com/2023/day/5) | [day05.py](src/solutions/day05.py) |
 | 06 | [](https://adventofcode.com/2023/day/6) | [](src/solutions/day06.py) |
 | 07 | [](https://adventofcode.com/2023/day/7) | [](src/solutions/day07.py) |
 | 08 | [](https://adventofcode.com/2023/day/8) | [](src/solutions/day08.py) |

@@ -1,44 +1,44 @@
 from src.tools.loader import load_data
-import time
 
-TESTING = False
+TESTING = True
+
+
+def count_fresh_ids_in_list(id_ranges, ingredients):
+    count = 0
+
+    for ing_id in ingredients:
+        if any([start <= ing_id and ing_id <= end for start, end in id_ranges]):
+            count += 1
+
+    return count
+
+
+def count_all_fresh_ids(id_ranges):
+    endpoints = {el for pair in id_ranges for el in pair}
+    cut_id_ranges = set()
+
+    for a, b in id_ranges:
+        cuts = sorted(el for el in endpoints if a <= el and el <= b)
+        cut_id_ranges.update((el, el) for el in cuts)
+        cut_id_ranges.update((cuts[i] + 1, cuts[i + 1] - 1) for i in range(len(cuts) - 1))
+
+    count = sum(b - a + 1 for a, b in cut_id_ranges)
+
+    return count
 
 
 if __name__ == "__main__":
-    s = time.time()
-    data = load_data(TESTING, "\n\n")
+    raw_ranges, raw_ingredients = load_data(TESTING, "\n\n")
 
-    ranges = [tuple(map(int, tuple(el.split("-")))) for el in data[0].split("\n")]
-    ingredients = list(map(int, data[1].split("\n")))
+    id_ranges = [tuple(map(int, el.split("-"))) for el in raw_ranges.split("\n")]
+    ingredients = list(map(int, raw_ingredients.split("\n")))
 
-    count = 0
+    # PART 1
+    # test:     3
+    # answer: 529
+    print(count_fresh_ids_in_list(id_ranges, ingredients))
 
-    for ing in ingredients:
-        spoiled = 0
-        for start, end in ranges:
-            if start <= ing and ing <= end:
-                spoiled = True
-        count += spoiled
-
-    print(count)
-
-    points = sorted(list(set([point for pair in ranges for point in pair])))
-
-    new_ranges = []
-    for a, b in ranges:
-        special = [num for num in points if a <= num and num <= b]
-        new_ranges += [(num, num) for num in special]
-        for i in range(len(special) - 1):
-            new_ranges.append((special[i] + 1, special[i + 1] - 1))
-
-    new_ranges = set(new_ranges)
-
-    count2 = 0
-    for a, b in new_ranges:
-        if a <= b:
-            count2 += b - a + 1
-
-    print(count2)
-
-    e = time.time()
-    print(e - s)
+    # PART 2
+    # test:                14
+    # answer: 344260049617193
+    print(count_all_fresh_ids(id_ranges))
